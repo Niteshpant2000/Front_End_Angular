@@ -1,0 +1,133 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+	
+<input type="checkbox" id="checkbox">
+
+<header class="header">
+	<h2 class="u-name">
+		<i id="navbtn" class="fa fa-bars" aria-hidden="true"></i>
+		Supermarket Billing <b>Management</b>
+	</h2>
+	<i class="fa fa-user-o" aria-hidden="true"></i>
+</header>
+
+<div class="body">
+	<nav class="side-bar">
+		<div class="user-p">
+			<img src="../../../assets/admin.jpg">
+			<h4>Hello  admin</h4>
+		</div>
+		<ul>
+			<li routerLink="/admin-dashboard">
+				<a routerLink="/admin-dashboard">
+					<i class="fa fa-user-o" aria-hidden="true"></i>
+					<span>Dashboard</span>
+				</a>
+			</li>
+			<li routerLink="/add-employee">
+				<a routerLink="/add-employee">
+					<i class="fa fa-user-circle"></i>
+					<span>Add Employee</span>
+				</a>
+			</li>
+			<li routerLink="/manage-employee">
+				<a routerLink="/manage-employee">
+					<i class="fa fa-users"></i>
+					<span>Manage Employees</span>
+				</a>
+			</li>
+			<li routerLink="/add-product">
+				<a routerLink="/add-product">
+					<i class="fa fa-plus"></i>
+					<span>Add Product</span>
+				</a>
+			</li>
+			<li routerLink="/view-orders-admin">
+				<a routerLink="/view-orders-admin">
+					<i class="fa fa-opencart" ></i>
+					<span>View Orders</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="fa fa-power-off" aria-hidden="true"></i>
+					<span>Logout</span>
+				</a>
+			</li>
+		</ul>
+	</nav> 
+	<section class="cards">
+		
+		<div class="container">
+			<div class="row">
+				<div class="panel panel-primary col-md-11" style="margin-left:2%;">
+				<div class="panel-heading" style="text-align:center;">
+					<h6 class="panel-title">Transactions</h6>
+				</div>
+				<table class="table table-hover" id="dev-table">
+					<thead>
+					<tr>
+						<th>Transaction ID</th>
+						<th>Customer Id</th>
+						<th>Date and Time</th>
+						<th>Total Amount</th>
+						<th>Payment Type</th>
+						<th>Action</th>
+						
+					</tr>
+					</thead>
+					<tbody *ngFor="let transaction of transactionList;let i=index">
+						<td>{{i}}</td>
+						<td>{{transaction.customerId}}</td>
+						<td>{{transaction.dateTime}}</td>
+						<td>{{transaction.totalAmount}}</td>
+						<td>{{transaction.paymentType}}</td>
+						<td><button class="btn-5" (click)="view(transaction, i)">View</button></td>
+						
+					</tbody>
+				</table>
+				</div>
+				
+			
+				
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="panel panel-primary col-md-11" style="margin-left:2%;">
+				<div class="panel-heading" style="text-align:center;">
+					<h6 class="panel-title">Transaction No: {{tempId}}</h6>
+				</div>
+				<table class="table table-hover" id="dev-table">
+					<thead>
+					<tr>
+						<th>Product ID</th>
+						<th>Product Name</th>
+						<th>Product Description</th>
+						<th>Product Cost</th>
+						<th>Product Rating</th>
+						<th>Product Manufacturer</th>
+						<th>Product discount</th>
+						<th>Product Quantity</th>
+						
+					</tr>
+					</thead>
+					<tbody *ngFor="let product of products">
+						<td>{{product.id}}</td>
+						<td>{{product.name}}</td>
+						<td>{{product.description}}</td>
+						<td>{{product.cost}}</td>
+						<td>{{product.rating}}</td>
+						<td>{{product.manufacturer}}</td>
+						<td>{{product.discount}}</td>
+						<td>{{product.quantity}}</td>
+						
+					</tbody>
+				</table>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+</div>
