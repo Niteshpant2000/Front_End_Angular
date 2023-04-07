@@ -89,16 +89,16 @@
                         <th>Designation</th>
                         <th>Action</th>
                     </thead>
-                    <tbody>
-                        <td>201</td>
-                        <td>Aman</td>
-                        <td>25</td>
-                        <td>aman_kumar@gmail.com</td>
-                        <td>9:00 am - 5:00 pm</td>
-                        <td>25000.00</td>
-                        <td>Cashier</td>
-                        <button class="btn btn-info btn-lg">Modify</button> &nbsp;
-                        <button class="btn btn-danger btn-lg">Delete</button>
+                    <tbody *ngFor="let employee of employeeList">
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.age}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>{{employee.workTimings}}</td>
+                        <td>{{employee.salary}}</td>
+                        <td>{{employee.designation}}</td>
+                        <button class="btn btn-info btn-lg" (click)="deleteEmployee(employee.id)">Delete</button> &nbsp;
+                    
                     </tbody>
                 </table>
             </div>

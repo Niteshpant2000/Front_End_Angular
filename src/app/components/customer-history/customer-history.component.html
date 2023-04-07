@@ -1,18 +1,69 @@
-<div class="table-wrapper">
-    <table class="fl-table">
-        <thead class="thead-dark">
-            <th scope="col">Transaction Id</th>
-            <th scope="col">Total Amount</th>
-            <th scope="col">Transaction Type</th>
-           
-        </thead>
-        <tbody *ngFor="let transaction of transactions" scope="row">
-            <td>{{transaction.customerId}}</td>
-            <td>{{transaction.dateTime}}</td>
-            <td>{{transaction.productDetails}}</td>
-            <td>{{transaction.totalAmount}}</td>
-            <td>{{transaction.paymentType}}</td>
+<section class="cards">
+		
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary col-md-11" style="margin-left:2%;">
+            <div class="panel-heading" style="text-align:center;">
+                <h6 class="panel-title">Transactions</h6>
+            </div>
+            <table class="table table-hover" id="dev-table">
+                <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Customer Id</th>
+                    <th>Date and Time</th>
+                    <th>Total Amount</th>
+                    <th>Payment Type</th>
+                    <th>Action</th>
+                    
+                </tr>
+                </thead>
+                <tbody *ngFor="let transaction of transactions;let i=index">
+                    <td>{{i}}</td>
+                    <td>{{transaction.customerId}}</td>
+                    <td>{{transaction.dateTime}}</td>
+                    <td>{{transaction.totalAmount}}</td>
+                    <td>{{transaction.paymentType}}</td>
+                    <td><button class="btn-5" (click)="view(transaction)">View</button></td>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary col-md-11" style="margin-left:2%;">
+            <div class="panel-heading" style="text-align:center;">
+                <h6 class="panel-title">Transaction</h6>
+            </div>
+            <table class="table table-hover" id="dev-table">
+                <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Description</th>
+                    <th>Product Cost</th>
+                    <th>Product Rating</th>
+                    <th>Product Manufacturer</th>
+                    <th>Product discount</th>
+                    <th>Product Quantity</th>
+                    
+                </tr>
+                </thead>
+                <tbody *ngFor="let product of products">
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.cost}}</td>
+                    <td>{{product.rating}}</td>
+                    <td>{{product.manufacturer}}</td>
+                    <td>{{product.discount}}</td>
+                    <td>{{product.quantity}}</td>
+                    
+                </tbody>
+            </table>
+            </div>
             
-        </tbody>
-    </table>
-</div>
+        </div>
+    </div>
+</section>

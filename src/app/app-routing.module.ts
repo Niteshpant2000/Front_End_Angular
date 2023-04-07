@@ -18,6 +18,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
 import { EmployeeAddProductComponent } from './components/employee-add-product/employee-add-product.component';
 import { ViewOrdersAdminComponent } from './components/view-orders-admin/view-orders-admin.component';
+import { CustomerHistoryComponent } from './components/customer-history/customer-history.component';
 
 const routes: Routes = [
   {path : '', component : HomeComponent},
@@ -39,7 +40,9 @@ const routes: Routes = [
   {path : 'customer-dashboard', component : CustomerDashboardComponent},
   {path : 'view-orders', component : ViewOrdersComponent},
   {path : 'add-products', component : EmployeeAddProductComponent},
-  {path : 'view-orders-admin', component : ViewOrdersAdminComponent}
+  {path : 'view-orders-admin', component : ViewOrdersAdminComponent},
+  {path : 'customer-history', component : CustomerHistoryComponent},
+
 
 ];
 

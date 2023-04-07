@@ -23,8 +23,14 @@ export class EmployeeComponent implements OnInit{
   workTimings !: Date|string;
   salary !: number;
   designation !: string;
-  
-  constructor(private formBuilder : FormBuilder,private restService:RestService){}
+  employeeList !: Cashier[];
+  constructor(private formBuilder : FormBuilder,private restService:RestService){
+    this.restService.getEmployee().subscribe(
+      data =>{  
+        this.employeeList = data as Cashier[];
+      }, err => console.log(err)
+    )
+  }
 
   ngOnInit(){
     this.addEmployeeForm = this.formBuilder.group({
@@ -53,18 +59,6 @@ export class EmployeeComponent implements OnInit{
     );
   }
 
-
-  employeeList !: Cashier[];
-  
-  // get all employees
-  getEmployee(){
-    this.restService.getEmployee().subscribe(
-      data =>{  
-        this.employeeList = data;
-      }, err => console.log(err)
-    )
-  }
-
   fetchId !: string;
   // get employee by id
   getEmployeeByid(fetchId: number){
@@ -76,7 +70,7 @@ export class EmployeeComponent implements OnInit{
   }
 
   // remove an Emplpoyee
-  deleteEmployee(id: number){
+  deleteEmployee(id: string){
     this.restService.deleteEmployeee(id).subscribe(data => {
       this.employeeList = data;
     }, err =>

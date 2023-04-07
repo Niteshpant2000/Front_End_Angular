@@ -52,7 +52,7 @@ export class InventoryComponent implements OnInit{
 
   fetchId !: string;
   // get product by id
-  getInventoryByid(fetchId: number){
+  getInventoryByid(fetchId: string){
     this.restService.getInventoryById(fetchId).subscribe(
       data => {
         this.inventoryList = data;
@@ -61,8 +61,8 @@ export class InventoryComponent implements OnInit{
   }
 
   // remove a product
-  deleteProduct(id: number){
-    this.restService.deleteEmployeee(id).subscribe(data => {
+  deleteProduct(id: string){
+    this.restService.removeProduct(id).subscribe(data => {
       this.inventoryList = data;
     }, err =>
     console.log(err)
